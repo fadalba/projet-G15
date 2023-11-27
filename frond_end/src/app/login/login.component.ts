@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   errorSms:any;
   spin= false;
   
-
-
   constructor(private userService : UsersService, private formBuilder: FormBuilder ,private route: Router,private meteoservice:SocketService) {
     
   }
@@ -33,19 +31,16 @@ export class LoginComponent implements OnInit {
       
       })
       this.meteoservice.onFetch().subscribe((data)=>{
-        /* console.log(data); */
+      
         
       })
      
 
-      
-      
       this.meteoservice.onFetchitem().subscribe((mute)=>{
-      /*   console.log(mute); */
+      
         
       })
 
-       
   }
 
   
@@ -77,14 +72,13 @@ this.spin = true
     }, 
     /* verifie si l'utilisateur n'est pas dans la base de donnée ou l'utilisateur est archiver */
     error=>{
-     /*  console.log(error) */
-    /*  console.log(error) */
+    
       if(error == 'Unauthorized'){
         this.errorSms ='Cette utilisateur est archivé'
         this.spin = false
         setTimeout(()=>{ this.errorSms = false}, 3001); 
       }else {
-      this.errorSms ='Vous  etes pas dans la base de données'
+      this.errorSms ='Vous  n"etes pas dans la base de données'
       this.spin = false
       setTimeout(()=>{ this.errorSms = false}, 3001); 
     }

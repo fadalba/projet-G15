@@ -19,16 +19,16 @@ router.post("/login",  async (req, res, next) => {
     
     existingUser = await Model.findOne({ email: email });
     if (!existingUser) {
-      return res.status(400).send("email doesn't exist...!");
+      return res.status(400).send("l'email n'existe pas...!");
     }else if(existingUser.etat == false){
-      return res.status(401).send("user est archivé...!");
+      return res.status(401).send("utilisateur archivé...!");
     }
       
       
     //check if password is correct
     const isPasswordValid = await bcrypt.compare(password, existingUser.password);
     if (!isPasswordValid) {
-      return res.status(400).send("password is invalid");
+      return res.status(400).send("Mot de passe invalide");
     }
     
     
@@ -165,14 +165,11 @@ res.status(400).json({ message: error.message })
 
 router.get('/pap', async(req, res) => {
   try{
-  /* const data = await Modeltemp.find();
-  console.log(data);
-  res.json(data) */
 
   MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db("test");
-    var col = dbo.collection('tempHum2');
+    var col = dbo.collection('climat');
     col.find().toArray(function(err, items) {
         console.log(items);
              res.json(items)
@@ -192,7 +189,7 @@ console.log(items);
       MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) throw err;
         var dbo = db.db("test");
-        var col = dbo.collection('tempHum2');
+        var col = dbo.collection('climat');
         col.deleteMany()
             
     })

@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
             return this.listTitles[item].title;
         }
     }
-    return 'Dashboard';
+    return 'admin';
   }
 
 }

@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SimpleusersComponent } from './users/simpleusers/simpleusers.component';
 import { AccueilDashboardComponent } from './accueil-dashboard/accueil-dashboard.component';
 import { SidebarComponent } from './users/sidebar/sidebar.component';
-import { DiagrammeComponent } from './diagramme/diagramme.component';
+//import { DiagrammeComponent } from './diagramme/diagramme.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 
 import { AuthGuard } from "./services/user.guard";
@@ -24,12 +24,11 @@ const routes: Routes = [
 {path:"login", component: LoginComponent},
 {path:"sides", component: SidebarComponent},
 {path:"", component: LoginComponent},
-{path:"diagramme", component: DiagrammeComponent},
+//{path:"diagramme", component: DiagrammeComponent},
 {path:"table", component: TableHistoriqueComponent, /* canActivate: [AuthGuard] */},
 {path:"sides", component: SidebarComponent, /* canActivate: [AuthGuard] */},
 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
-/* { path: '**', redirectTo: '/accueil' }, */
 {path:"modification", component: ModificationComponent, /* canActivate: [AuthGuard] */},
 
 

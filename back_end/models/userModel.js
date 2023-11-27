@@ -54,4 +54,4 @@ img:{
 })
 
 
-module.exports = mongoose.model('personnes', dataSchema);/* users nom de la collection */
+module.exports = mongoose.model('personne', dataSchema);/* users nom de la collection */
