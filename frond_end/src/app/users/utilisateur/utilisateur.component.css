@@ -1,0 +1,7 @@
+#btn{
+    display: flex;
+    justify-content: center;
+}
+.pagination::ng-deep .ngx-pagination .current{
+    background-image: linear-gradient(rgba(255, 0, 0, 0.9), rgba(255, 0, 0, 0.9));
+ }
