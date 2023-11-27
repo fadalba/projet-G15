@@ -22,8 +22,10 @@
     <tr class="bg-danger" >
       <th scope="col">Date</th>
       <th scope="col">Heure</th>
-      <th scope="col">Temperature</th>
-      <th scope="col">Humidite</th>
+      <th scope="col">Temperature Ambiante</th>
+      <th scope="col">Humidite Ambiante</th>
+      <th scope="col">Temperature panneau en °C</th>
+      <th scope="col">Temperature panneau en °F</th>
     </tr>
   </thead>
   <tbody>
@@ -31,8 +33,10 @@
       <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
       <td>{{i.Date}}</td>
       <td>{{i.Heure}}</td>
-      <td>{{i.temperature}}°C</td>
-      <td>{{i.humidite}}%</td> 
+      <td>{{i.Temperature}}°C</td>
+      <td>{{i.Humidite}}%</td> 
+      <td>{{i.ThermocoupleC}}°C</td>
+      <td>{{i.ThermocoupleF}}°F</td> 
     </tr>
 
   </tbody>

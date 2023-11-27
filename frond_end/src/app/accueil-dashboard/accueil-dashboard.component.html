@@ -15,14 +15,14 @@
       <div class="card d-flex align-items-center" style="width: 392px; height: 231px;">
           
         <div class="card-body mt-3 mr-auto " >
-            <h3 class="text-center">Actuellement</h3>
+            <h6 class="text-center" >Thermocouple en temps réel</h6>
              <div class="d-flex justify-content-around mt-3 mr-auto ">
             <div  style="font-size: 50px; color: red;" *ngFor="let i of tempHum">{{i.temperature}}°C</div>
             <div  style="font-size: 50px; color: green; margin-left: 75px;" *ngFor="let i of tempHum">{{i.humidite}}%</div>
          </div>
           <div class="d-flex justify-content-around " >
-            <div>Temperature</div>
-            <div style="margin-left: 75px;">Humidité</div> 
+            <div>Temperature en °C</div>
+            <div style="margin-left: 75px;">Température en °F</div> 
           </div>
         </div>
       </div>
@@ -32,14 +32,14 @@
         <div class="card d-flex align-items-center " style="width: 350px;">
          
           <div class="card-body mt-1 mr-auto gap-3">
-            
+            <h6 class="text-center" >Panneau solaire</h6>
             
             <div class=" d-flex justify-content-center mb-2" *ngIf="img"> 
-              <img class="taivent h-50 w-50" src="../../assets/vent.gif" alt="Card image cap">  
+              <img class="taivent h-50 w-50" src="../../assets/panneau2.png" alt="Card image cap">  
               
             </div>
             <div class=" d-flex justify-content-center mb-2" *ngIf="!img"> 
-              <img class="taivent h-50 w-50" src="../../assets/gif.jpg" alt="Card image cap">  
+              <img class="taivent h-50 w-50" src="../../assets/panneau-image.jpg" alt="Card image cap">  
               
             </div>
             
@@ -57,7 +57,7 @@
         <div class="card d-flex align-items-center" style="width: 392px; height: 231px;">
           
           <div class="card-body mt-3 mr-auto " >
-              <h3 class="text-center">Moyenne</h3>
+              <h6 class="text-center">Température et Humidité ambiante (DHT11)</h6>
               
             <div class="d-flex justify-content-around mt-3 mr-auto ">
               <div  style="font-size: 50px; color: red;">{{moyTemp | number:'1.0-0'}}°C</div>
