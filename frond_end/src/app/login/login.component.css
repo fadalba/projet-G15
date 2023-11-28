@@ -1,5 +1,9 @@
     
-    .gradient-custom-2{
+   .body{
+    background-color:#29211F ;
+   }
+
+   .gradient-custom-2{
         background-image:linear-gradient(rgb(16, 5, 4), rgba(248, 247, 245, 0)),
         url('../../assets/panneau.png');
         background-repeat: no-repeat;
