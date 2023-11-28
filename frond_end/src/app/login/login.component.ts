@@ -17,12 +17,20 @@ export class LoginComponent implements OnInit {
   submitted = false;
   errorSms:any;
   spin= false;
+
   
   constructor(private userService : UsersService, private formBuilder: FormBuilder ,private route: Router,private meteoservice:SocketService) {
     
   }
   
   ngOnInit() {
+
+    this.meteoservice.onFetch().subscribe((data)=>{
+      console.log(data);  
+      
+  
+      })
+
     this.registerForm = this.formBuilder.group({
     
       email:['',[Validators.required,Validators.email]],

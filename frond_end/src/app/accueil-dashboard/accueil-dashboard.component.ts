@@ -25,6 +25,8 @@ export class AccueilDashboardComponent implements OnInit {
   moyHum:any;
   dethier:any;
   temp20: any;
+  temperature!:any;
+  humidite!:any;
   img:boolean =false
   t8:any;
   t12:any;
@@ -35,10 +37,23 @@ export class AccueilDashboardComponent implements OnInit {
   constructor(private meteoservice:SocketService, private serServe :UsersService, private socket: Socket){}
 
   ngOnInit(): void {
+
     this.meteoservice.onFetch().subscribe((data)=>{
-    /*   console.log(data); */  
-      this.tempHum = Array(data)
-    })
+    console.log(data);  
+     });
+
+     this.meteoservice.valeur2().subscribe((data:any)=>{
+      this.temperature = data;
+      console.log(this.temperature)});
+
+      this.meteoservice.valeur1().subscribe((data:any)=>{
+      this.humidite = data;
+      console.log(this.humidite);
+  
+})
+    
+  
+ 
 
     //recuperation temperature par heur données et calsul des moyenne 
     this.serServe.historique().subscribe((data)=>{
@@ -53,29 +68,33 @@ export class AccueilDashboardComponent implements OnInit {
      this.temp12 = this.temphum.filter((e:any)=> e.Heure == "12:00:00" && e.Date == this.currentDate)
      this.temp19 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" && e.Date == this.currentDate)
      this.temp20 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" || "12:00:00" || "08:00:00" && e.Date == this.dethier && e.Date <= this.currentDate)
-    
-     // calcul de  la moyenne 
-    /* const t8 = this.temp8[0].temperature;
+    /*  console.log(this.temp20);
+      */
+   /*   this.temp20.forEach(function (temperature:any) {
+      console.log(temperature.temperature);
+    });  */
+
+
+  /*   const t8 = this.temp8[0].temperature;
     const h8 = this.temp8[0].humidite;
     const t12 = this.temp12[0].temperature;
     const h12 = this.temp12[0].humidite;
     const t19 = this.temp19[0].temperature;
     const h19 = this.temp19[0].humidite; */
 
-   /*  this.moyTemp = (parseInt(String(this.t8)) + parseInt(String(this.t12)) + parseInt(String(this.t19))) / 3;
-    this.moyHum = (parseInt(String(this.h8)) + parseInt(String(this.h12)) + parseInt(String(this.h19))) / 3;
-     */
+    this.moyTemp = (parseInt(String(this.t8)) + parseInt(String(this.t12)) + parseInt(String(this.t19))) / 3;
+    this.moyHum = (parseInt(String(this.h8)) + parseInt(String(this.h12)) + parseInt(String(this.h19))) / 3; 
+    
     })  
   }
 
-  allumer(){
-    this.img = true;
-    this.socket.emit('active', '1');
-  }
+  // allumer(){
+  //   this.img = true;
+  //   this.socket.emit('active', '1');
+  // }
 
-  eteindre(){
-    this.img = false;
-    this.socket.emit('active', '0');
+  // eteindre(){
+  //   this.img = false;
+  //   this.socket.emit('active', '0');
+  // }
   }
-
-}

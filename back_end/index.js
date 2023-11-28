@@ -52,6 +52,7 @@ var port = new SerialPort({ path:'/dev/ttyACM0',
 }); 
 
 
+var parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
 var url = "mongodb+srv://fadalba:Thiaroye44@cluster0.daoknxe.mongodb.net/test/";
 
@@ -67,6 +68,55 @@ io.on('connection', function(socket) {
       });
     
 });
+// ...
+
+// Définissez le gestionnaire d'événement pour les données série
+// parser.on('data', function(data) {
+//     // Traitez les données ici
+//   //  console.log('Données reçues depuis la carte:', data);
+
+//     // Si les données sont au format JSON, vous pouvez les analyser comme suit
+//     try {
+//         const jsonData = JSON.parse(data);
+//         console.log('Données au format JSON:', jsonData);
+
+//         // Émettez les données via Socket.io à tous les clients connectés
+//         io.emit('serialData', jsonData);
+//     } catch (error) {
+//         console.error('Erreur lors de l\'analyse des données JSON:', error);
+//     }
+// });
+
+// ...
+
+// ...
+
+// ...
+
+// Définissez le gestionnaire d'événement pour les données série
+parser.on('data', function (data) {
+    // Supposons que les données sont séparées par une virgule
+    const dataArray = data.split('/');
+
+    // Vérifiez si les éléments existent avant d'essayer de les accéder
+    const valeur1 = dataArray[0];
+    var valeur2 = dataArray[1];
+//  console.log(data);
+    // Affichez les valeurs séparées dans la console à des fins de débogage
+    console.log('Valeur 1:', valeur1);
+    console.log('Valeur 2:', valeur2);
+    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},);
+     io.emit('valeur2',valeur2);
+     io.emit('valeur1',valeur1);
+
+});
+
+// ...
+
+// ...
+
+
+
 
     const fetchMovies = (socket) => {
         data.findAll()
