@@ -15,39 +15,22 @@ import { TableHistoriqueComponent } from './table-historique/table-historique.co
 import { AuthGuard } from "./services/user.guard";
 
 const routes: Routes = [
-<<<<<<< HEAD
-{path: "pageArchive" , component: UtilisateurComponent,  canActivate: [AuthGuard]},
-{path: "admin", component: UtilisateurComponent,  canActivate: [AuthGuard] },
-{path: "profil", component: ProfilComponent, canActivate: [AuthGuard] },
-{path: "user", component: SimpleusersComponent,  canActivate: [AuthGuard] },
-{path:"acceuil", component: AccueilDashboardComponent,  canActivate: [AuthGuard] },
-{path:"inscription", component: InscrptionComponent,  canActivate: [AuthGuard] },
-=======
 {path: "pageArchive" , component: UtilisateurComponent, canActivate: [AuthGuard]},
 {path: "admin", component: UtilisateurComponent, canActivate: [AuthGuard]},
 {path: "profil", component: ProfilComponent, canActivate: [AuthGuard]},
 {path: "user", component: SimpleusersComponent, canActivate: [AuthGuard]},
 {path:"acceuil", component: AccueilDashboardComponent, canActivate: [AuthGuard]},
 {path:"inscription", component: InscrptionComponent, canActivate: [AuthGuard]},
->>>>>>> 79590cca6f7d4f8d3112aabc51557ba8f9f6c016
 {path:"login", component: LoginComponent},
 {path:"sides", component: SidebarComponent},
 {path:"", component: LoginComponent},
 {path:"diagramme", component: DiagrammeComponent},
-<<<<<<< HEAD
-{path:"table", component: TableHistoriqueComponent, canActivate: [AuthGuard] },
-{path:"sides", component: SidebarComponent,  canActivate: [AuthGuard] },
-
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
-{path:"modification", component: ModificationComponent,  canActivate: [AuthGuard]},
-=======
 {path:"table", component: TableHistoriqueComponent, canActivate: [AuthGuard]},
 {path:"sides", component: SidebarComponent, canActivate: [AuthGuard]},
 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 /* { path: '**', redirectTo: '/accueil' }, */
 {path:"modification", component: ModificationComponent, canActivate: [AuthGuard]},
->>>>>>> 79590cca6f7d4f8d3112aabc51557ba8f9f6c016
 
 
 
