@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html  >
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système de supervision</title>
+    <title> <h5 > Système de supervision </h5></title>
 </head>
-<body class="container d-flex justify-content-center align-item-center col-lg-12">
-    <div class="container py-5 h-100 mt-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
-                <div class="card rounded-3 text-black">
-                    <div class="row g-0">
-                        <div class="col-lg-6">
-                            <div class="card-body p-md-5 mx-md-4">
-                                <div class="text-center">
-                                    <p>Système du supervision d'un panneau solaire au G15</p>
-                                    <img src="../../assets/panneau-image.jpg" 
+<body class="container d-flex justify-content-center align-item-center col-lg-6" id="font" >
+    <!-- <div class="container py-5 h-100 mt-5" style="background-color:#29211F ;"> -->
+        <!-- <div class="row d-flex justify-content-center align-items-center h-100"> -->
+            <!-- <div class="col-xl-10" > -->
+                <!-- <div class="card rounded-3 text-black" > -->
+                    <div class="row g-0" style="background-color:#F39C12 ;">
+                        <div class="col-lg-6" >
+                            <div class="card-body p-md-5 mx-md-4" >
+                                <div class="text-center" >
+                                    <p style="color: white;">SYTÉME DE SUPERVISION D'UN PANNEAU DE SOLAIRE AU G15</p>
+                                    <img src="../../assets/panneau.png" 
                                         style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Connexion</h4>
+                                    <h4 class="mt-1 mb-5 pb-1" style="color: white;">Connexion</h4>
                                 </div>
                                 <form id="form" class="row g-3 d-flex justify-content-center no-wrap m-2"
                                     (submit)="onSubmit()" [formGroup]="registerForm">
@@ -28,7 +28,7 @@
                                     <div>
                                         <div class="input-control">
                                             <div>
-                                                <label for="email">Email<span style="color: red;">*</span></label>
+                                                <label for="email" style="color: white;">Email<span style="color: red;">*</span></label>
                                             <input id="email" name="email" class=" p-3 rounded-0" type="text" id="email"
                                                 name="email" class=" p-3 rounded-0" type="text" id="email" name="email"
                                                 class=" p-3 rounded-0" type="text"
@@ -50,7 +50,7 @@
                                     </div>
                                     <div>
                                         <div class="input-control">
-                                            <label for="password">Mot de passe<span style="color: red;">*</span></label>
+                                            <label for="password" style="color: white;">Mot de passe<span style="color: red;">*</span></label>
                                             <input name="password" class=" p-3 rounded-0" type="password" id="pass1"
                                                 name="password" class=" p-3 rounded-0" type="password" placeholder=""
                                                 [ngClass]="{'is-invalid':submitted && registerForm.controls['password'].errors}"
@@ -68,10 +68,10 @@
                                         </div>
                                     </div>
     
-                                    <div class="text-center pt-1 mb-5 pb-1">
+                                    <div class="text-center pt-1 mb-5 pb-1" >
 
-                                        <button type="submit" id="button" class="btn btn-outline-danger">
-                                            <span class="visually" *ngIf="!spin">Se connecter</span>
+                                        <button type="submit" id="button" class="btn btn-outline-succes" style="background-color: black;">
+                                            <span class="visually" *ngIf="!spin" style="color: white;">Se connecter</span>
                                             <span class="spinner-border spinner-border-sm" *ngIf="spin" role="status"
                                                 aria-hidden="false" style="color: white;"></span>
                                         </button>
@@ -85,10 +85,10 @@
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
-            </div>
-        </div>
-    </div>
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
 </body>
 </html>
