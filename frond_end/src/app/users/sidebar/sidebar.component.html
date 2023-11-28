@@ -64,8 +64,8 @@
   <h1 class="visually-hidden">Sidebars examples</h1>
   <!-- <div class="b-example-divider"></div> -->
 
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-danger" style="width: 280px;background-image:linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5)),
-  url('../assets/sidebar-5.jpg');height: 100vh;background-repeat: no-repeat;background-size: 100% 1000px;">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-danger" style="width: 280px;background-image:linear-gradient(rgba(243, 1156, 18, 0.767), rgba(255, 251, 0, 0.5)),
+  url('../assets/panneau-image');height: 100vh;background-repeat: no-repeat;background-size: 100% 1000px;">
   <div class="d-flex justify-content-center">
     <div class="dropdown d-flex flex-column">
       <div class="d-flex justify-content-center">
@@ -82,58 +82,12 @@
         <h6> <span class="d-none d-sm-inline ">{{user.matricule | uppercase}}</span></h6>
         
       </div> 
-      <!-- <a href="#" class="d-flex justify-content-center align-items-center link-light text-decoration-none dropdown-toggle mt-3" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <strong>Paramètres</strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profil</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Deconnection</a></li>
-      </ul> -->
+     
     </div>
   </div>
     <hr style="color: white;">
     <ul class="nav nav-pills flex-column mb-auto" *ngFor="let user of userActif">
-      <!-- <li class="nav-item">
-        <a [routerLink]="['/acceuil']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5" aria-current="page">
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#speedometer2"></use></svg>
-          Dashboard
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/profil']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#people-circle"></use></svg>
-          Profil
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/admin']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#table"></use></svg>
-          Liste active
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/pageArchive']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#table"></use></svg>
-          Liste archive
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/diagramme']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-        <a [routerLink]="['/historique']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#collection"></use></svg>
-          Historique
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/inscription']" routerLinkActive="router-link-active"  class="nav-link link-light fs-5">
-          <svg class="bi me-2" width="20" height="20"><use xlink:href="#people"></use></svg>
-          Inscription
-        </a>
-      </li> -->
+      
       <div *ngIf="user.roles == 'Admin'">
       <li id="current" routerLinkActive="nav-link bg-light active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
         <a  [routerLink]="[menuItem.path]" style="text-decoration: none;gap: 15px;" class="nav-link link-light fs-5 d-flex">
