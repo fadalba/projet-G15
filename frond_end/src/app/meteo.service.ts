@@ -34,4 +34,10 @@ export class SocketService {
 		return this.socket.fromEvent('mute');
 	}
 	
+	valeur2(){
+		return this.socket.fromEvent('valeur2')
+	  }
+	  valeur1(){
+		return this.socket.fromEvent('valeur1')
+	  }
 }
