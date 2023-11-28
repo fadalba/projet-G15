@@ -200,10 +200,3 @@ console.log(items);
     res.status(400).json({ message: error.message })
     }
     })
-  // list data
-/* router.get('/pap', function(req, res) {
-  Modeltemp.find(function (err, sales) {
-      if (err) return next(err);
-      res.json(sales);
-  });
-}); */

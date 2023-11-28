@@ -33,7 +33,7 @@ const io = require('socket.io')(http);
 
 database.once('connected', ()=> {
     
-console.log('Database Connected')
+console.log('base de données connectée')
 
 })
 
@@ -60,7 +60,7 @@ var temoin = '0'
 
 io.on('connection', function(socket) {
     
-    console.log('Node is listening to port');
+   // console.log('Node is listening to port');
     socket.on("active", (arg) => {
         console.log(arg); // world
         temoin = arg;
@@ -76,6 +76,6 @@ io.on('connection', function(socket) {
    
 
   http.listen(3001, ()=>{
-    console.log('server started at ${3001}')/* apres avoir ecouter le port 3000 affiche les données */
+    console.log('vous utilisez le port ${3001}')/* apres avoir ecouter le port 3000 affiche les données */
 })
 

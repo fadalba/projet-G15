@@ -73,7 +73,7 @@
         </div>
     
     </div>
-    
+  <h1> Historiques de la journée </h1>
     <!-- Affichage des trois Temperatures et Humidités  -->
     <div class="container justify-content-between custom-line">
         <div class="card d-flex align-items-center" style="width: 350px;">
@@ -84,7 +84,7 @@
                 <img *ngIf="t8 >= 30; else archive;" class="card-img-top rounded-circle taicard" src="../../assets/8hh.jpeg" alt="Card image cap">
                 <img *ngIf="t8 >= 24" class="card-img-top rounded-circle taicard" src="../../assets/8hh.jpeg" alt="Card image cap">
                 <ng-template #archive>
-                  <img class="card-img-top rounded-circle taicard" src="../../assets/téléchargement (2).jpeg" alt="Card image cap">
+                  <img class="card-img-top rounded-circle taicard" src="../../assets/panneau-image.jpg" alt="Card image cap">
                 </ng-template> 
               </div>
                 <div class="centered">{{t8}}°C</div>
