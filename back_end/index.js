@@ -60,7 +60,7 @@ var temoin = '0'
 
 io.on('connection', function(socket) {
     
-   // console.log('Node is listening to port');
+   console.log('Node is listening to port');
     socket.on("active", (arg) => {
         console.log(arg); // world
         temoin = arg;
