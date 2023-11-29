@@ -40,4 +40,11 @@ export class SocketService {
 	  valeur1(){
 		return this.socket.fromEvent('valeur1')
 	  }
+	  	
+	valeur3(){
+		return this.socket.fromEvent('valeur3')
+	  }
+	  valeur4(){
+		return this.socket.fromEvent('valeur4')
+	  }
 }

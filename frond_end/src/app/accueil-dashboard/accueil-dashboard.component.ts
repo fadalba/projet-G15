@@ -27,29 +27,32 @@ export class AccueilDashboardComponent implements OnInit {
   temp20: any;
   temperature!:any;
   humidite!:any;
+  tempDegres!:any;
+  tempFara!:any;
+  fara=273;
   img:boolean =false
   t8:any;t12:any;t19:any;h8:any;h12:any;h19:any;
   constructor(private meteoservice:SocketService, private serServe :UsersService, private socket: Socket){}
 
   ngOnInit(): void {
 
-    this.meteoservice.onFetch().subscribe((data)=>{
-    console.log(data);  
-     });
+     this.meteoservice.onFetch().subscribe((data)=>{
+      console.log(data);});
 
      this.meteoservice.valeur2().subscribe((data:any)=>{
       this.temperature = data;
       console.log(this.temperature)});
 
-      this.meteoservice.valeur1().subscribe((data:any)=>{
+    this.meteoservice.valeur1().subscribe((data:any)=>{
       this.humidite = data;
-      console.log(this.humidite);
-  
-})
+      console.log(this.humidite);})
     
-  
- 
-
+    this.meteoservice.valeur4().subscribe((data:any)=>{
+      this.tempDegres = data;
+      console.log(this.tempDegres) });
+      this.meteoservice.valeur3().subscribe((data:any)=>{
+        this.tempFara = data;
+        console.log(this.tempFara) });
     //recuperation temperature par heur données et calsul des moyenne 
     this.serServe.historique().subscribe((data)=>{
       //console.log(data);

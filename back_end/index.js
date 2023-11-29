@@ -99,16 +99,21 @@ parser.on('data', function (data) {
     const dataArray = data.split('/');
 
     // Vérifiez si les éléments existent avant d'essayer de les accéder
-    const valeur1 = dataArray[0];
+    var valeur1 = dataArray[0];
     var valeur2 = dataArray[1];
+    var valeur3 = dataArray[2];
+    var valeur4 = dataArray[3];
 //  console.log(data);
     // Affichez les valeurs séparées dans la console à des fins de débogage
     console.log('Valeur 1:', valeur1);
     console.log('Valeur 2:', valeur2);
-    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},);
+    console.log('Valeur 3:', valeur3);
+    console.log('Valeur 4:', valeur4);
+    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},{"valeur3":valeur3},{'valeur4':valeur4},);
      io.emit('valeur2',valeur2);
      io.emit('valeur1',valeur1);
-
+     io.emit('valeur3',valeur3);
+     io.emit('valeur4',valeur4);
 });
 
 // ...
