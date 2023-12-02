@@ -85,13 +85,10 @@ export class AccueilDashboardComponent implements OnInit {
     })  
   }
 
-  // allumer(){
-  //   this.img = true;
-  //   this.socket.emit('active', '1');
-  // }
-
-  // eteindre(){
-  //   this.img = false;
-  //   this.socket.emit('active', '0');
-  // }
+RotationPlus(){
+  this.meteoservice.RotationPlus();
+}
+RotationMoin(){
+  this.meteoservice.RotationMoin();
+}
   }

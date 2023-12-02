@@ -12,52 +12,56 @@
     <div class="container justify-content-between custom-line">
     
        <!--  affichage de la temperature actuelle -->
-      <div class="card d-flex align-items-center" style="width: 392px; height: 231px;">
+      <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color:#F39C12;">
           
         <div class="card-body mt-3 mr-auto " >
-            <h6 class="text-center" >Thermocouple en temps réel</h6>
+            <h6 class="text-center" style="color: white;">Thermocouple en temps réel</h6>
              <div class="d-flex justify-content-around mt-3 mr-auto ">
             <!-- <div  style="font-size: 50px; color: red;" *ngFor="let i of tempHum">{{temperature}}°C </div>
             <div  style="font-size: 50px; color: green; margin-left: 75px;" *ngFor="let i of tempHum">{{humidite}}%</div> -->
+            <div class="d-flex justify-content-around mt-3 mr-auto ">
+              <div  style="font-size: 50px; color:maroon;">{{tempDegres}}°C</div>
+              <div  style="font-size: 50px; color:blue; margin-left: 75px;"><p>{{tempFara}}°F</p></div>
+            </div>
          </div>
           <div class="d-flex justify-content-around " >
-            <div><p>{{tempDegres}}</p>°C</div>
-            <div style="margin-left: 75px;"><p>{{tempFara}}</p> °F</div> 
+            <div style="color: white;">Temperature en °C</div>
+            <div style="margin-left: 75px; color: white;">Température en °F</div> 
           </div>
         </div>
       </div>
     
     
        <!--  affichage ventilateur -->
-        <div class="card d-flex align-items-center " style="width: 350px;">
+        <div class="card d-flex align-items-center " style="width: 330px; background-color:#F39C12;">
          
           <div class="card-body mt-1 mr-auto gap-3">
-            <h6 class="text-center" >Panneau solaire</h6>
+            <h6 class="text-center" style="color: white;">Panneau solaire</h6>
             
             <div class=" d-flex justify-content-center mb-2" *ngIf="img"> 
               <img class="taivent h-50 w-50" src="../../assets/panneau2.png" alt="Card image cap">  
               
             </div>
             <div class=" d-flex justify-content-center mb-2" *ngIf="!img"> 
-              <img class="taivent h-50 w-50" src="../../assets/panneau-image.jpg" alt="Card image cap">  
+              <img class="taivent h-50 w-50" src="../../assets/panneau.png" alt="Card image cap">  
               
             </div>
-<!--             
+            
               <div class=" d-flex justify-content-center" *ngIf="!img">
-                <button type="button" class="btn btn-success" (click)="allumer()">On</button> 
+                <button type="button" class="btn btn-success" (click)="RotationPlus()">On</button> 
               </div>
               <div class=" d-flex justify-content-center" *ngIf="img">
-                <button type="button" class="btn btn-danger" (click)="eteindre()">Off</button> 
-              </div> -->
+                <button type="button" class="btn btn-danger" (click)="RotationMoin()">Off</button> 
+              </div>
         
             
           </div>
         </div>
       <!--  affichage temperature moyenene -->
-        <div class="card d-flex align-items-center" style="width: 392px; height: 231px;">
+        <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color: #F39C12;">
           
           <div class="card-body mt-3 mr-auto " >
-              <h6 class="text-center">Température et Humidité ambiante (DHT11)</h6>
+              <h6 class="text-center" style="color: white;">Température et Humidité ambiante (DHT11)</h6>
               
             <div class="d-flex justify-content-around mt-3 mr-auto ">
               <div  style="font-size: 50px; color: red;">{{temperature}}°C</div>

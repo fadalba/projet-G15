@@ -47,4 +47,10 @@ export class SocketService {
 	  valeur4(){
 		return this.socket.fromEvent('valeur4')
 	  }
+	  RotationPlus(){
+		this.socket.emit('RotationPlus' , '1')
+	  }
+	  RotationMoin(){
+		this.socket.emit('RotationMoin', '2')
+	  }
 }

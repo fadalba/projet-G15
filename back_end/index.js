@@ -67,31 +67,16 @@ io.on('connection', function(socket) {
         temoin = arg;
       });
     
+
+      socket.on('RotationPlus', () =>{
+        port.write("1")
+        });
+
+      socket.on('RotationMoin', () =>{
+      port.write("2")
+      });
 });
-// ...
 
-// Définissez le gestionnaire d'événement pour les données série
-// parser.on('data', function(data) {
-//     // Traitez les données ici
-//   //  console.log('Données reçues depuis la carte:', data);
-
-//     // Si les données sont au format JSON, vous pouvez les analyser comme suit
-//     try {
-//         const jsonData = JSON.parse(data);
-//         console.log('Données au format JSON:', jsonData);
-
-//         // Émettez les données via Socket.io à tous les clients connectés
-//         io.emit('serialData', jsonData);
-//     } catch (error) {
-//         console.error('Erreur lors de l\'analyse des données JSON:', error);
-//     }
-// });
-
-// ...
-
-// ...
-
-// ...
 
 // Définissez le gestionnaire d'événement pour les données série
 parser.on('data', function (data) {
@@ -99,8 +84,8 @@ parser.on('data', function (data) {
     const dataArray = data.split('/');
 
     // Vérifiez si les éléments existent avant d'essayer de les accéder
-    var valeur1 = dataArray[0];
-    var valeur2 = dataArray[1];
+    var valeur1 = dataArray[1];
+    var valeur2 = dataArray[0];
     var valeur3 = dataArray[2];
     var valeur4 = dataArray[3];
 //  console.log(data);
