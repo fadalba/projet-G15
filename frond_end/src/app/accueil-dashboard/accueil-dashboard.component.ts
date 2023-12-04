@@ -30,6 +30,8 @@ export class AccueilDashboardComponent implements OnInit {
   tempDegres!:any;
   tempFara!:any;
   fara=273;
+  capteur_gauche!:any;
+  capteur_droite!:any;
   img:boolean =false
   t8:any;t12:any;t19:any;h8:any;h12:any;h19:any;
   constructor(private meteoservice:SocketService, private serServe :UsersService, private socket: Socket){}
@@ -37,22 +39,33 @@ export class AccueilDashboardComponent implements OnInit {
   ngOnInit(): void {
 
      this.meteoservice.onFetch().subscribe((data)=>{
-      console.log(data);});
+     // console.log(data);
+    });
 
      this.meteoservice.valeur2().subscribe((data:any)=>{
       this.temperature = data;
-      console.log(this.temperature)});
+     // console.log(this.temperature);
+    });
 
     this.meteoservice.valeur1().subscribe((data:any)=>{
       this.humidite = data;
-      console.log(this.humidite);})
+     // console.log(this.humidite);
+    })
     
     this.meteoservice.valeur4().subscribe((data:any)=>{
       this.tempDegres = data;
-      console.log(this.tempDegres) });
+     // console.log(this.tempDegres);
+     });
       this.meteoservice.valeur3().subscribe((data:any)=>{
         this.tempFara = data;
-        console.log(this.tempFara) });
+       // console.log(this.tempFara);
+      });
+        this.meteoservice.valeur5().subscribe((data:any)=>{
+          this.capteur_gauche = data;
+        })
+        this.meteoservice.valeur6().subscribe((data:any)=>{
+          this.capteur_droite = data;
+        })
     //recuperation temperature par heur données et calsul des moyenne 
     this.serServe.historique().subscribe((data)=>{
       //console.log(data);
@@ -61,7 +74,9 @@ export class AccueilDashboardComponent implements OnInit {
     /*  console.log(this.dethier); */
      
      this.temphum = data as unknown as Temphum[];
-     this.temp8 = this.temphum.filter((e:any)=> e.Heure == "08:00:00" && e.Date == this.currentDate)
+     console.log(this.temphum);
+     
+     this.temp8 = this.temphum.filter((e:any)=> e.Heure == "14:31:00" && e.Date == this.currentDate)
      this.temp12 = this.temphum.filter((e:any)=> e.Heure == "12:00:00" && e.Date == this.currentDate)
      this.temp19 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" && e.Date == this.currentDate)
      this.temp20 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" || "12:00:00" || "08:00:00" && e.Date == this.dethier && e.Date <= this.currentDate)

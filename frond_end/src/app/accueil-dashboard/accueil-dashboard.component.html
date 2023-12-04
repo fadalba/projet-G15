@@ -12,7 +12,7 @@
     <div class="container justify-content-between custom-line">
     
        <!--  affichage de la temperature actuelle -->
-      <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color:#F39C12;">
+      <div class="card d-flex " style="width: 392px; height: 231px; background-color:#F39C12;">
           
         <div class="card-body mt-3 mr-auto " >
             <h6 class="text-center" style="color: white;">Thermocouple en temps réel</h6>
@@ -33,25 +33,32 @@
     
     
        <!--  affichage ventilateur -->
-        <div class="card d-flex align-items-center " style="width: 330px; background-color:#F39C12;">
+        <div class="card d-flex align-items-center " style="width: 400px; background-color:#F39C12;">
          
           <div class="card-body mt-1 mr-auto gap-3">
             <h6 class="text-center" style="color: white;">Panneau solaire</h6>
-            
-            <div class=" d-flex justify-content-center mb-2" *ngIf="img"> 
-              <img class="taivent h-50 w-50" src="../../assets/panneau2.png" alt="Card image cap">  
+            <div class="d-flex justify-content-around " >
+              <div style="color: white;">capteur gauche</div>
+              <div style="margin-left: 75px; color: white;">capteur a droite</div> 
+            </div>     
+            <div class="d-flex justify-content-around mt-3 mr-auto ">
+              <div  style="font-size: 50px; color:darkblue;">{{capteur_gauche}}%</div>
+              <div  style="font-size: 50px; color:darkcyan; margin-left: 75px;"><p>{{capteur_gauche}}%</p></div>
+         </div>      
+             <!-- <div class=" d-flex justify-content-center mb-2" *ngIf="img"> 
+              <img class="taivent h-50 w-100" src="../../assets/panneau2.png" alt="Card image cap">  
               
             </div>
             <div class=" d-flex justify-content-center mb-2" *ngIf="!img"> 
               <img class="taivent h-50 w-50" src="../../assets/panneau.png" alt="Card image cap">  
               
-            </div>
+            </div> -->
             
               <div class=" d-flex justify-content-center" *ngIf="!img">
-                <button type="button" class="btn btn-success" (click)="RotationPlus()">On</button> 
+                <button type="button" class="btn btn-success" (click)="RotationPlus()">Rotation+</button> 
               </div>
               <div class=" d-flex justify-content-center" *ngIf="img">
-                <button type="button" class="btn btn-danger" (click)="RotationMoin()">Off</button> 
+                <button type="button" class="btn btn-danger" (click)="RotationMoin()">Rotation-</button> 
               </div>
         
             
@@ -75,6 +82,7 @@
            
           </div>
         </div>
+
     
     </div>
     
@@ -85,15 +93,56 @@
             <div class="card-body  mt-3 mr-auto">
                 <h3 class="text-center">09:00</h3>
                 <div>
+  <table class="table table-bordered shadow-lg p-5 mb-5 bg-white rounded-3">
+
+<thead>
+  <tr>
+    <th class="bg-dark" style="color: #ffff;">VARIABLES</th>
+    <th class="bg-dark" style="color: #ffff;">VALEURS</th>
+  </tr>
+  <tr>
+    <th>temperature DHT11</th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Humidité DH11</th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Temperature THC </th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Temperature THC </th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Phoorésistance_XG </th>
+    <th></th>
+  </tr>
+  <tr>
+    <th>Phoorésistance_XD </th>
+    <th></th>
+  </tr>
+</thead>
+<!-- <tbody>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+</tbody> -->
+</table>
+                </div>
+                <!-- <div>
                 <img *ngIf="t8 >= 30; else archive;" class="card-img-top rounded-circle taicard" src="../../assets/8hh.jpeg" alt="Card image cap">
                 <img *ngIf="t8 >= 24" class="card-img-top rounded-circle taicard" src="../../assets/8hh.jpeg" alt="Card image cap">
                 <ng-template #archive>
                   <img class="card-img-top rounded-circle taicard" src="../../assets/téléchargement (2).jpeg" alt="Card image cap">
                 </ng-template> 
-              </div>
-                <div class="centered">{{t8}}°C</div>
+              </div> -->
+                <!-- <div class="centered">{{t8}}°C</div>
                 <h5 class="card-title">Card title</h5>
-              <h3 class="text-center">HUMIDITE : {{h8}}%</h3>
+              <h3 class="text-center">HUMIDITE : {{h8}}%</h3> -->
             </div>
           </div> 
         
@@ -101,18 +150,54 @@
            
             <div class="card-body mt-3 mr-auto">
                 <h3 class="text-center">12:00</h3>
-                <div>
+
+                <table class="table table-bordered shadow-lg p-5 mb-5 bg-white rounded-3">
+
+                  <thead>
+                    <tr>
+                      <th class="bg-dark" style="color: #ffff;">VARIABLES</th>
+                      <th class="bg-dark" style="color: #ffff;">VALEURS</th>
+                    </tr>
+                    <tr>
+                      <th>temperature DHT11</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Humidité DH11</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Temperature THC </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Temperature THC </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Phoorésistance_XG </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Phoorésistance_XD </th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <!-- <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  </tbody> -->
+                  </table>
+                <!-- <div>
                   <img *ngIf="t12 >= 30 ; else archive;" class="card-img-top rounded-circle taicard" src="../../assets/12hh.jpeg" alt="Card image cap">
                   <img *ngIf="t12 >= 24" class="card-img-top rounded-circle taicard" src="../../assets/12h.jpeg" alt="Card image cap">
                   <ng-template #archive>
                     <img class="card-img-top rounded-circle taicard" src="../../assets/téléchargement (2).jpeg" alt="Card image cap">
                   </ng-template> 
-                </div>
-                <div class="centered">{{t12}}°C</div>
+                </div> -->
             
-            
-                <h5 class="card-title">Card title</h5>
-              <h3 class="text-center">HUMIDITE : {{h12}}%</h3>
             </div>
           </div>
         
@@ -120,17 +205,54 @@
             
             <div class="card-body mt-3 mr-auto " >
                 <h3 class="text-center">19:00</h3>
-                <div>
+
+                <table class="table table-bordered shadow-lg p-5 mb-5 bg-white rounded-3">
+
+                  <thead>
+                    <tr>
+                      <th class="bg-dark" style="color: #ffff;">VARIABLES</th>
+                      <th class="bg-dark" style="color: #ffff;">VALEURS</th>
+                    </tr>
+                    <tr>
+                      <th>temperature DHT11</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Humidité DH11</th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Temperature THC </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Temperature THC </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Phoorésistance_XG </th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Phoorésistance_XD </th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <!-- <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  </tbody> -->
+                  </table>
+                <!-- <div>
                 <img *ngIf="t19 >= 30; else archive;" class="card-img-top rounded-circle taicard" src="../../assets/19hh.jpeg" alt="Card image cap">
                 <img *ngIf="t19 >= 24" class="card-img-top rounded-circle taicard" src="../../assets/19h.jpeg" alt="Card image cap">               
                 <ng-template #archive>
                   <img class="card-img-top rounded-circle taicard" src="../../assets/téléchargement (2).jpeg" alt="Card image cap">
                 </ng-template> 
-                </div>
-                <div class="centered">{{t19}}°C</div>
-              <h5 class="card-title">Card title</h5>
-              
-              <h3 class="text-center">HUMIDITE : {{h19}}%</h3>
+                </div> -->
+      
              
             </div>
           </div>

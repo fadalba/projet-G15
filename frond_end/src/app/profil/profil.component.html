@@ -15,7 +15,7 @@
       <div class="col col-lg-10 mb-4  mb-lg-0 bg-body " style="width: 900px; ">
         <div class="card mb-3 mt-3" style="border-radius: .5rem;">
           <div class="row g-0 ">
-            <div class="col-md-4 shadow bg-danger gradient-custom text-center text-dark"
+            <div class="col-md-4 shadow bg-dark gradient-custom text-center text-dark"
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
 
 
@@ -27,15 +27,15 @@
 
               <h2 class="text-dark">
 
-                <p class="text-dark text-bold">{{user.prenom}}</p>
-                <p class="text-dark">{{user.nom}}</p>
+                <p class="text-white text-bold">{{user.prenom}}</p>
+                <p class="text-white">{{user.nom}}</p>
               </h2>
               <!-- pour modifier profil -->
               <div ng="let user of userActif" *ngIf="user.roles == 'Admin'">
                 <span class="btn btn-outline-dark rounded-5" title="modifier_Profil">
                   <!-- get pour recuperer des objets email,nom etc dans la table d'objet -->
                <button (click)="getUserData(user._id,user.email,user.prenom,user.nom)" class="rounded-5" >
-                <i class="bi bi-pen-fill" id="i2" style="color: black;" ></i>
+                <i class="bi bi-pen-fill" id="i2" style="color: yellow;" ></i>
                </button></span>
            
               </div><br>
@@ -44,7 +44,7 @@
              
                 <span class="btn btn-outline-dark rounded-5 " title="modifier_Mot_De_Passe">
                   <button (click)="getUserPassword(user._id)" class="rounded-5">
-                    <i class="bi bi-pen-fill" id="i2"style="color: black;" ></i>
+                    <i class="bi bi-pen-fill" id="i2"style="color: blue;" ></i>
                   </button></span>
               </div>
             </div>

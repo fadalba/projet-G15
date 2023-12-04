@@ -7,6 +7,18 @@ type: String
 humidite: {
 type: String
 },
+temperature_THC_C: {
+    type:String
+},
+temperature_THC_F: {
+    type:String
+},
+Photorésistance_XG: {
+    type: String
+},
+Photorésistance_XD: {
+    type: String
+},
 Date: {
 type: String
 },

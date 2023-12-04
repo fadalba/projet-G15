@@ -7,6 +7,7 @@ var cors = require('cors') //configuration des differentes requettes pour accede
 const routes = require('./routes/routes');
 
 
+
 const databaseLink = process.env.DATABASE_URL/* permet de recuperer le lien de la base de donnée */
 
 mongoose.connect(databaseLink);/* permet d'avoir access à la base mongodb */
@@ -42,6 +43,7 @@ var fs = require('fs');
 const { SerialPort } = require('serialport');
 var { ReadlineParser } = require("@serialport/parser-readline")
 const router = require('./routes/routes');
+const userModelCopy = require('./models/userModel copy');
 
 var port = new SerialPort({ path:'/dev/ttyACM0',
     baudRate: 9600,
@@ -77,6 +79,7 @@ io.on('connection', function(socket) {
       });
 });
 
+let totalRempli = 0;
 
 // Définissez le gestionnaire d'événement pour les données série
 parser.on('data', function (data) {
@@ -88,17 +91,77 @@ parser.on('data', function (data) {
     var valeur2 = dataArray[0];
     var valeur3 = dataArray[2];
     var valeur4 = dataArray[3];
+    var valeur5 = dataArray[4];
+    var valeur6 = dataArray[5];
 //  console.log(data);
     // Affichez les valeurs séparées dans la console à des fins de débogage
     console.log('Valeur 1:', valeur1);
     console.log('Valeur 2:', valeur2);
     console.log('Valeur 3:', valeur3);
     console.log('Valeur 4:', valeur4);
-    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},{"valeur3":valeur3},{'valeur4':valeur4},);
+    console.log('valeur5:', valeur5);
+    console.log('valeur6:', valeur6);
+    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},{"valeur3":valeur3},{'valeur4':valeur4},{'valeur5':valeur5},{'valeur6':valeur6});
      io.emit('valeur2',valeur2);
      io.emit('valeur1',valeur1);
      io.emit('valeur3',valeur3);
      io.emit('valeur4',valeur4);
+     io.emit('valeur5',valeur5);
+     io.emit('valeur6',valeur6);
+
+
+     var datHeure = new Date();
+     var min = datHeure.getMinutes();
+    var heur = datHeure.getHours(); //heure
+    var sec = datHeure.getSeconds(); //secondes
+    var mois = datHeure.getDate(); //renvoie le chiffre du jour du mois
+    var numMois = datHeure.getMonth() + 1; //le mois en chiffre
+    var laDate = datHeure.getFullYear(); // me renvoie en chiffre l'annee
+    if (numMois < 10) { numMois = '0' + numMois; }
+    if (mois < 10) { mois = '0' + mois; }
+    if (sec < 10) { sec = '0' + sec; }
+    if (min < 10) { min = '0' + min; }
+    var heureInsertion = heur + ':' + min + ':' + sec;
+    var heureEtDate = laDate  + '-' + numMois + '-' +  mois;
+
+    parser.on('data', async (data) => {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+    
+        // Set insertion times
+        const insertionTimes = ['16:01:00', '12:00:00', '19:00:00'];
+    
+        const compt = await userModelCopy.findOne({ Date: formattedDate }).exec();
+    
+        for (const formattedTime of insertionTimes) {
+            const existingDocument = await userModelCopy.findOne({ Date: formattedDate, Heure: formattedTime }).exec();
+        
+            if (existingDocument === null) {
+                const nouveauCompteur = new userModelCopy({
+                    temperature: valeur1,
+                    humidite: valeur2,
+                    temperature_THC_C: valeur3,
+                    temperature_THC_F: valeur4,
+                    Photorésistance_XG: valeur5,
+                    Photorésistance_XD: valeur6,
+                    Date: formattedDate,
+                    Heure: formattedTime,
+                });
+        
+                nouveauCompteur.save((err) => {
+                    if (err) {
+                        console.error('Erreur lors de l\'enregistrement :', err);
+                    } else {
+                        console.log('Nouveau compteur enregistré :', nouveauCompteur);
+                    }
+                });
+                
+            }
+        }
+        
+    });
+    
+
 });
 
 // ...
