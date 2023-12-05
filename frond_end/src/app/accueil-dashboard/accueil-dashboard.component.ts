@@ -17,9 +17,9 @@ export class AccueilDashboardComponent implements OnInit {
   currentDate:any;
   tempHum: any = []
   temphum!: Temphum[] ;
-  temp12:any
-  temp8:any
-  temp19:any
+  temp12_dht:any
+  temp8_dht:any
+  temp19_dht:any
   temp!:any[]
   moyTemp:any;
   moyHum:any;
@@ -34,13 +34,22 @@ export class AccueilDashboardComponent implements OnInit {
   capteur_droite!:any;
   img:boolean =false
   t8:any;t12:any;t19:any;h8:any;h12:any;h19:any;
+  historique!: Temphum[];
+  last_week!: string;
+  date: any;
+  donne8h!: Temphum[];
+  donne12h!: Temphum[];
+  donne19h!: Temphum[];
+  donneesEnJSON!: any;
+  affiche!:any
+
   constructor(private meteoservice:SocketService, private serServe :UsersService, private socket: Socket){}
 
   ngOnInit(): void {
 
-     this.meteoservice.onFetch().subscribe((data)=>{
-     // console.log(data);
-    });
+    //  this.meteoservice.onFetch().subscribe((data)=>{
+    //  // console.log(data);
+    // });
 
      this.meteoservice.valeur2().subscribe((data:any)=>{
       this.temperature = data;
@@ -63,47 +72,41 @@ export class AccueilDashboardComponent implements OnInit {
         this.meteoservice.valeur5().subscribe((data:any)=>{
           this.capteur_gauche = data;
         })
-        this.meteoservice.valeur6().subscribe((data:any)=>{
+        this.meteoservice.valeur6().subscribe((daTemphumta:any)=>{
           this.capteur_droite = data;
         })
-    //recuperation temperature par heur données et calsul des moyenne 
-    this.serServe.historique().subscribe((data)=>{
-      //console.log(data);
-     this.currentDate = new Date().getDate() + '/' + new Date().getMonth() +1 + '/'+  new Date().getFullYear();
-     this.dethier = new Date().getDate()-7 + '/' + new Date().getMonth() +1 + '/'+  new Date().getFullYear();
-    /*  console.log(this.dethier); */
-     
-     this.temphum = data as unknown as Temphum[];
-     console.log(this.temphum);
-     
-     this.temp8 = this.temphum.filter((e:any)=> e.Heure == "14:31:00" && e.Date == this.currentDate)
-     this.temp12 = this.temphum.filter((e:any)=> e.Heure == "12:00:00" && e.Date == this.currentDate)
-     this.temp19 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" && e.Date == this.currentDate)
-     this.temp20 = this.temphum.filter((e:any)=> e.Heure == "19:00:00" || "12:00:00" || "08:00:00" && e.Date == this.dethier && e.Date <= this.currentDate)
-    /*  console.log(this.temp20);
-      */
-   /*   this.temp20.forEach(function (temperature:any) {
-      console.log(temperature.temperature);
-    });  */
 
 
-  /*   const t8 = this.temp8[0].temperature;
-    const h8 = this.temp8[0].humidite;
-    const t12 = this.temp12[0].temperature;
-    const h12 = this.temp12[0].humidite;
-    const t19 = this.temp19[0].temperature;
-    const h19 = this.temp19[0].humidite;
+this.date = new Date(); // date
+var jour= this.date.getDate(); //renvoie le chiffre du jour du mois
+var mois = this.date.getMonth() + 1; //le mois en chiffre
+var annee = this.date.getFullYear(); // me renvoie en chiffre l'annee
+if (mois < 10) { mois = '0' + mois; } // si le jour est <10 on affiche 0 devant
+if (jour < 10) { jour = '0' + jour; } // si le mois est <10 on affiche 0 devant
 
-    this.moyTemp = (parseInt(String(this.t8)) + parseInt(String(this.t12)) + parseInt(String(this.t19))) / 3;
-    this.moyHum = (parseInt(String(this.h8)) + parseInt(String(this.h12)) + parseInt(String(this.h19))) / 3; */
-    
-    })  
+
+    this.meteoservice.getTotal().subscribe((data) => {
+      // affichage de la journée
+      //this.currentDate = ('0'+new Date().getDate()) + '-' + ((new Date().getMonth()+1)) + '-'+  new Date().getFullYear();
+      this.currentDate = (new Date().getFullYear()) + '-' + ((new Date().getMonth()+1)) + '-'+'0'+  new Date().getDate();
+
+   //   console.log(this.currentDate);
+      
+this.historique=data as unknown as Temphum[];
+
+this.donne8h= this.historique.filter((h:any)=>h.Heure=='08:00:00'&& h.Date==this.currentDate)
+//console.log(this.donne8h)
+ this.donne12h= this.historique.filter((h:any)=>h.Heure=='12:00:00' && h.Date==this.currentDate)
+ //console.log(this.donne12h);
+this.donne19h= this.historique.filter((h:any)=>h.Heure=='19:00:00' && h.Date==this.currentDate)
+
+  });
   }
 
-RotationPlus(){
-  this.meteoservice.RotationPlus();
-}
-RotationMoin(){
-  this.meteoservice.RotationMoin();
-}
+  RotationPlus(){
+    this.meteoservice.RotationPlus();
   }
+  RotationMoin(){
+    this.meteoservice.RotationMoin();
+  }
+}

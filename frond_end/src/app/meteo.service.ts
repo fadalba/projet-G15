@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { data } from 'jquery';
 import { Socket } from 'ngx-socket-io';
 import { Temp_Humid } from './services/interfaces/movie';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class SocketService {
-	constructor(private socket: Socket) { }
+	private url = 'http://localhost:3001/api/g15';
+  data: any[] = [];
+  httpClient: any;
+	constructor(private socket: Socket, private http: HttpClient) { }
 
 	// emit event
 	allume() {
@@ -29,6 +33,9 @@ export class SocketService {
 	// listen event
 	onFetch() {
 		return this.socket.fromEvent('data');
+	}
+	getTotal(){
+		return this.http.get<any[]>(this.url);
 	}
 	onFetchitem() {
 		return this.socket.fromEvent('mute');

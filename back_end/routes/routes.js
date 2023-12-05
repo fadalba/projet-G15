@@ -163,13 +163,13 @@ res.status(400).json({ message: error.message })
 
 /* get all method */
 
-router.get('/pap', async(req, res) => {
+router.get('/g15', async(req, res) => {
   try{
 
   MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db("test");
-    var col = dbo.collection('climat');
+    var col = dbo.collection('donnees');
     col.find().toArray(function(err, items) {
         console.log(items);
              res.json(items)

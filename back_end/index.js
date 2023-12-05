@@ -110,74 +110,47 @@ parser.on('data', function (data) {
      io.emit('valeur6',valeur6);
 
 
-     var datHeure = new Date();
-     var min = datHeure.getMinutes();
-    var heur = datHeure.getHours(); //heure
-    var sec = datHeure.getSeconds(); //secondes
-    var mois = datHeure.getDate(); //renvoie le chiffre du jour du mois
-    var numMois = datHeure.getMonth() + 1; //le mois en chiffre
-    var laDate = datHeure.getFullYear(); // me renvoie en chiffre l'annee
-    if (numMois < 10) { numMois = '0' + numMois; }
-    if (mois < 10) { mois = '0' + mois; }
-    if (sec < 10) { sec = '0' + sec; }
-    if (min < 10) { min = '0' + min; }
-    var heureInsertion = heur + ':' + min + ':' + sec;
-    var heureEtDate = laDate  + '-' + numMois + '-' +  mois;
-
-    parser.on('data', async (data) => {
-        const currentDate = new Date();
-        const formattedDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
-    
-        // Set insertion times
-        const insertionTimes = ['16:01:00', '12:00:00', '19:00:00'];
-    
-        const compt = await userModelCopy.findOne({ Date: formattedDate }).exec();
-    
-        for (const formattedTime of insertionTimes) {
-            const existingDocument = await userModelCopy.findOne({ Date: formattedDate, Heure: formattedTime }).exec();
-        
-            if (existingDocument === null) {
-                const nouveauCompteur = new userModelCopy({
-                    temperature: valeur1,
-                    humidite: valeur2,
-                    temperature_THC_C: valeur3,
-                    temperature_THC_F: valeur4,
-                    Photorésistance_XG: valeur5,
-                    Photorésistance_XD: valeur6,
-                    Date: formattedDate,
-                    Heure: formattedTime,
-                });
-        
-                nouveauCompteur.save((err) => {
-                    if (err) {
-                        console.error('Erreur lors de l\'enregistrement :', err);
-                    } else {
-                        console.log('Nouveau compteur enregistré :', nouveauCompteur);
-                    }
-                });
-                
-            }
-        }
-        
-    });
-    
-
-});
-
-// ...
-
-// ...
-
-
-
-
-    const fetchMovies = (socket) => {
-        data.findAll()
-            .then(data => io.emit('fetchMovies', data))
-            .catch(logError)
-    }
    
 
+     var datHeure = new Date();
+var min = datHeure.getMinutes();
+var heur = datHeure.getHours(); //heure
+var sec = datHeure.getSeconds(); //secondes
+var mois = datHeure.getDate(); //renvoie le chiffre du jour du mois
+var numMois = datHeure.getMonth() + 1; //le mois en chiffre
+var laDate = datHeure.getFullYear(); // me renvoie en chiffre l'annee
+if (numMois < 10) { numMois = '0' + numMois; }
+if (mois < 10) { mois = '0' + mois; }
+if (sec < 10) { sec = '0' + sec; }
+if (min < 10) { min = '0' + min; }
+var heureInsertion = heur + ':' + min + ':' + sec;
+var heureEtDate = laDate  + '-' + numMois + '-' +  mois;
+
+     var tempEtHum = { 'Date': heureEtDate, 'Heure': heureInsertion , 
+     "temperature": valeur2, "humidite": valeur1,
+      'temperature_THC_C':valeur3, 'temperature_THC_F':valeur4,
+    'Photoresistance_XG':valeur5, 'Photoresistance_XD':valeur6}; 
+
+       if ((heur == 8 && min == 0 && sec == 0) 
+       || (heur == 12 && min == 0 && sec == 0) 
+    || (heur == 19 && min == 0 && sec == 0)) { 
+         //Connexion a mongodb et insertion Temperature et humidite
+         MongoClient.connect(url, { useUnifiedTopology: false }, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db("test");
+            dbo.collection("donnees").insertOne(tempEtHum, function(err, res) 
+
+            {
+                if (err) throw err;
+                db.close();
+            });
+            console.log("1 document inserted");
+
+        })
+    }
+  
+    });
+    
   http.listen(3001, ()=>{
     console.log('server started at ${3001}')/* apres avoir ecouter le port 3000 affiche les données */
 })

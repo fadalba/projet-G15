@@ -13,10 +13,10 @@ temperature_THC_C: {
 temperature_THC_F: {
     type:String
 },
-Photorésistance_XG: {
+Photoresistance_XG: {
     type: String
 },
-Photorésistance_XD: {
+Photoresistance_XD: {
     type: String
 },
 Date: {
@@ -28,4 +28,4 @@ type: String
 })
 
 
-module.exports = mongoose.model('climat', data1Schema);/* users nom de la collection */
+module.exports = mongoose.model('donnees', data1Schema);/* users nom de la collection */
