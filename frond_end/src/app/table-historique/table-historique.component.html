@@ -2,6 +2,7 @@
  <div class="container d-flex justify-content-end" style="margin-top: 50px;">       
 
   <form class="form-inline my-2 my-lg-2 row">
+   
     <div class="d-flex gap-1">
       <input *ngIf="show" id="search" class="form-control" type="text" name="search" placeholder="Rechercher" [(ngModel)]="searchText">
       <button class="btn btn-outline-danger" (click)="afficher()"><i class="bi bi-search"></i></button>
@@ -17,7 +18,13 @@
 </span>
 </div>
 
- <table class="table table-bordered shadow-lg p-5 mb-5 bg-white rounded-3">
+
+<div class="col-md-4 text-right">
+  <button class="btn btn-primary btn-block" (click)="openPDF()">Télécharger en PDF</button>
+</div>
+
+
+ <table class="table table-bordered shadow-lg p-5 mb-5 bg-white rounded-3"  id="htmlData">
   <thead>
     <tr class="bg-dark" >
       <th scope="col" style="color: #ffff;">Date</th>
@@ -31,15 +38,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let i of temphum | filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
-      <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
+    <tr *ngFor="let i of allTemphum | filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
       <td>{{i.Date}}</td>
       <td>{{i.Heure}}</td>
-      <td>{{i.Temperature}}°C</td>
-      <td>{{i.Humidite}}%</td> 
-      <td>{{i.ThermocoupleC}}°C</td>
-      <td>{{i.ThermocoupleF}}°F</td> 
+      <td>{{i.humidite}}°C</td>
+      <td>{{i.temperature}}%</td> 
+      <td>{{i.temperature_THC_C}}°C</td>
+      <td>{{i.temperature_THC_F}}°F</td>
+      <td>{{i.Photoresistance_XG}}%</td> 
+      <td>{{i.Photoresistance_XD}}%</td> 
+
     </tr>
+
+
 
   </tbody>
 </table>
@@ -48,3 +59,7 @@
   <div class="pagination fixed-bottom justify-content-center">
     <pagination-controls (pageChange)="p = $event"></pagination-controls> 
   </div>
+
+
+
+  

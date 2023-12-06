@@ -33,7 +33,7 @@
   
     
        <!--  affichage ventilateur -->
-        <div class="card d-flex align-items-center " style="width: 400px; background-color:#F39C12;">
+        <div class="card d-flex align-items-center " style="width: 400px; background-color:#b799b9;">
          
           <div class="card-body mt-1 mr-auto gap-3">
             <h6 class="text-center" style="color: white;">Panneau solaire</h6>
@@ -65,13 +65,13 @@
           </div>
         </div>
       <!--  affichage temperature moyenene -->
-        <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color: #F39C12;">
+        <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color: #727d7d;">
           
           <div class="card-body mt-3 mr-auto " >
               <h6 class="text-center" style="color: white;">Température et Humidité ambiante (DHT11)</h6>
               
             <div class="d-flex justify-content-around mt-3 mr-auto ">
-              <div  style="font-size: 50px; color: red;" >{{temperature}}°C</div>
+              <div  style="font-size: 50px; color: red;" >{{temp}}°C</div>
               <div  style="font-size: 50px; color: green; margin-left: 75px;"><p>{{humidite}}%</p></div>
             </div>
             <div class="d-flex justify-content-around " >
@@ -219,27 +219,16 @@
                       <th>{{this.donne19h[0].Photoresistance_XD}}</th>
                     </tr>
                   </thead>
-                  <!-- <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  </tbody> -->
+             
                   </table>
-                <!-- <div>
-                <img *ngIf="t19 >= 30; else archive;" class="card-img-top rounded-circle taicard" src="../../assets/19hh.jpeg" alt="Card image cap">
-                <img *ngIf="t19 >= 24" class="card-img-top rounded-circle taicard" src="../../assets/19h.jpeg" alt="Card image cap">               
-                <ng-template #archive>
-                  <img class="card-img-top rounded-circle taicard" src="../../assets/téléchargement (2).jpeg" alt="Card image cap">
-                </ng-template> 
-                </div> -->
+        
       
              
             </div>
           </div>
     
     </div>
-  
+ 
     
  
 </body>

@@ -25,7 +25,6 @@ export class AccueilDashboardComponent implements OnInit {
   moyHum:any;
   dethier:any;
   temp20: any;
-  temperature!:any;
   humidite!:any;
   tempDegres!:any;
   tempFara!:any;
@@ -52,8 +51,8 @@ export class AccueilDashboardComponent implements OnInit {
     // });
 
      this.meteoservice.valeur2().subscribe((data:any)=>{
-      this.temperature = data;
-     // console.log(this.temperature);
+      this.temp = data;
+     //console.log(this.temp);
     });
 
     this.meteoservice.valeur1().subscribe((data:any)=>{
