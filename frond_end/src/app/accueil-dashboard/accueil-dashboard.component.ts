@@ -61,11 +61,11 @@ export class AccueilDashboardComponent implements OnInit {
     })
     
     this.meteoservice.valeur4().subscribe((data:any)=>{
-      this.tempDegres = data;
+      this.tempFara = data;
      // console.log(this.tempDegres);
      });
       this.meteoservice.valeur3().subscribe((data:any)=>{
-        this.tempFara = data;
+        this.tempDegres = data;
        // console.log(this.tempFara);
       });
         this.meteoservice.valeur5().subscribe((data:any)=>{
