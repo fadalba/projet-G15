@@ -63,6 +63,7 @@ ngOnInit()  {
     });  */
 
     const t8 = this.temp8[0].temperature;
+    
     const h8 = this.temp8[0].humidite;
     const t12 = this.temp12[0].temperature;
     const h12 = this.temp12[0].humidite;

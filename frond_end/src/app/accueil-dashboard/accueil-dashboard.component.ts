@@ -83,14 +83,14 @@ if (jour < 10) { jour = '0' + jour; } // si le mois est <10 on affiche 0 devant
     this.meteoservice.getTotal().subscribe((data) => {
       // affichage de la journée
       //this.currentDate = ('0'+new Date().getDate()) + '-' + ((new Date().getMonth()+1)) + '-'+  new Date().getFullYear();
-      this.currentDate = (new Date().getFullYear()) + '-' + ((new Date().getMonth()+1)) + '-'+'0'+  new Date().getDate();
+      this.currentDate = (new Date().getFullYear()) + '-' + ((new Date().getMonth()+1)) + '-'+  new Date().getDate();
 
-   //   console.log(this.currentDate);
+    console.log(this.currentDate);
       
 this.historique=data as unknown as Temphum[];
 
 this.donne8h= this.historique.filter((h:any)=>h.Heure=='08:00:00'&& h.Date==this.currentDate)
-//console.log(this.donne8h)
+console.log(this.donne8h)
  this.donne12h= this.historique.filter((h:any)=>h.Heure=='12:00:00' && h.Date==this.currentDate)
  //console.log(this.donne12h);
 this.donne19h= this.historique.filter((h:any)=>h.Heure=='19:00:00' && h.Date==this.currentDate)
