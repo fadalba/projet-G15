@@ -19,6 +19,10 @@ import { ProfilComponent } from './profil/profil.component';
 import { AccueilDashboardComponent } from './accueil-dashboard/accueil-dashboard.component';
 import { SidebarComponent } from './users/sidebar/sidebar.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
+import { NgChartsModule } from 'ng2-charts';
+import { Chart } from 'chart.js/dist';
+import { CourbeComponent } from './courbe/courbe.component';
+
 
 const config: SocketIoConfig = { url: 'http://localhost:3001', options: {
     transports: ["websocket"]
@@ -40,7 +44,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {
         ProfilComponent,
         AccueilDashboardComponent,
         SidebarComponent,
-        TableHistoriqueComponent
+        TableHistoriqueComponent,
+        CourbeComponent
         
     ],
     bootstrap: [AppComponent],
@@ -56,6 +61,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {
         Ng2SearchPipeModule,
         NgStyle,
         NgClass,
+        NgChartsModule,
+        
 
         SocketIoModule.forRoot(config)
 

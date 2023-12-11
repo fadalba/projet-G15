@@ -11,6 +11,7 @@ import { AccueilDashboardComponent } from './accueil-dashboard/accueil-dashboard
 import { SidebarComponent } from './users/sidebar/sidebar.component';
 import { DiagrammeComponent } from './diagramme/diagramme.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
+import { CourbeComponent } from './courbe/courbe.component';
 
 import { AuthGuard } from "./services/user.guard";
 
@@ -25,6 +26,7 @@ const routes: Routes = [
 {path:"sides", component: SidebarComponent},
 {path:"", component: LoginComponent},
 {path:"diagramme", component: DiagrammeComponent},
+{path: "courbe", component:CourbeComponent},
 {path:"table", component: TableHistoriqueComponent, canActivate: [AuthGuard]},
 {path:"sides", component: SidebarComponent, canActivate: [AuthGuard]},
 

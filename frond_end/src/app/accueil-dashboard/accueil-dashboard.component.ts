@@ -13,7 +13,6 @@ import { Socket } from 'ngx-socket-io';
   styleUrls: ['./accueil-dashboard.component.css']
 })
 export class AccueilDashboardComponent implements OnInit {
-
   currentDate:any;
   tempHum: any = []
   temphum!: Temphum[] ;
@@ -46,13 +45,10 @@ export class AccueilDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //  this.meteoservice.onFetch().subscribe((data)=>{
-    //  // console.log(data);
-    // });
 
      this.meteoservice.valeur2().subscribe((data:any)=>{
       this.temp = data;
-     //console.log(this.temp);
+     console.log(this.temp);
     });
 
     this.meteoservice.valeur1().subscribe((data:any)=>{
