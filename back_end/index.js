@@ -134,9 +134,9 @@ var heureEtDate = laDate  + '-' + numMois + '-' +  mois;
       'temperature_THC_C':valeur3, 'temperature_THC_F':valeur4,
     'Photoresistance_XG':valeur5, 'Photoresistance_XD':valeur6}; 
 
-       if ((heur == 11 && min == 4 && sec == 0) 
-       || (heur == 13 && min == 55 && sec == 0) 
-    || (heur == 13 && min == 56 && sec == 0)) { 
+       if ((heur == 8 && min == 0 && sec == 0) 
+       || (heur == 12 && min == 0 && sec == 0) 
+    || (heur == 18 && min == 42 && sec == 30)) { 
          //Connexion a mongodb et insertion Temperature et humidite
          MongoClient.connect(url, { useUnifiedTopology: false }, function(err, db) {
             if (err) throw err;
