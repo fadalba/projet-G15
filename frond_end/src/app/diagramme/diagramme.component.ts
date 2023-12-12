@@ -164,6 +164,116 @@ if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
     },
   });
 }
+// Your existing chart initialization code
+if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
+  const temperatures_THCAt8AM = this.temp8.map((e: any) => e.temperature_THC_C);
+  const temperatures_THCAt12AM = this.temp12.map((e: any) => e.temperature_THC_C);
+  const temperatures_THCAt7AM = this.temp19.map((e: any) => e.temperature_THC_C);
+
+ 
+  const DateTotal = this.temp8.map((e: any) => e.Date);
+
+  const ctx = document.getElementById('ThermocoupleChart') as HTMLCanvasElement;
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: DateTotal,
+      datasets: [
+        {
+          label: 'Temperatures at 8:00 AM',
+          data: temperatures_THCAt8AM,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'Temperatures at 12:00 PM',
+          data: temperatures_THCAt12AM,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
+          borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
+          borderWidth: 1,
+        },
+        {
+          label: 'Temperatures at 7:00 PM',
+          data: temperatures_THCAt7AM,
+          backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
+          borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        xAxis: {
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+        },
+        yAxis: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+} else {
+  this.moyTemp = 0;
+}
+// Your existing chart initialization code
+if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
+  const temperatures_THCAt8AM = this.temp8.map((e: any) => e.temperature_THC_F);
+  const temperatures_THCAt12AM = this.temp12.map((e: any) => e.temperature_THC_F);
+  const temperatures_THCAt7AM = this.temp19.map((e: any) => e.temperature_THC_F);
+
+ 
+  const DateTotal = this.temp8.map((e: any) => e.Date);
+
+  const ctx = document.getElementById('Thermocouple_F_Chart') as HTMLCanvasElement;
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: DateTotal,
+      datasets: [
+        {
+          label: 'Temperatures at 8:00 AM',
+          data: temperatures_THCAt8AM,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'Temperatures at 12:00 PM',
+          data: temperatures_THCAt12AM,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
+          borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
+          borderWidth: 1,
+        },
+        {
+          label: 'Temperatures at 7:00 PM',
+          data: temperatures_THCAt7AM,
+          backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
+          borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        xAxis: {
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+        },
+        yAxis: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+} else {
+  this.moyTemp = 0;
+}
 
   
                      
