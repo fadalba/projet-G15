@@ -76,21 +76,21 @@ if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
           data: temperaturesAt8AM,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 12:00 PM',
           data: temperaturesAt12AM,
           backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 7:00 PM',
           data: temperaturesAt7AM,
           backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
       ],
     },
@@ -131,21 +131,21 @@ if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
           data: humiditeAt8AM,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Humidite at 12:00 PM',
           data: humiditeAt12AM,
           backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Humidite at 7:00 PM',
           data: humiditeAt7AM,
           backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
       ],
     },
@@ -184,21 +184,21 @@ if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
           data: temperatures_THCAt8AM,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 12:00 PM',
           data: temperatures_THCAt12AM,
           backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 7:00 PM',
           data: temperatures_THCAt7AM,
           backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
       ],
     },
@@ -239,21 +239,21 @@ if (this.temp8.length > 0 && this.temp12.length > 0 && this.temp19.length > 0) {
           data: temperatures_THCAt8AM,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 12:00 PM',
           data: temperatures_THCAt12AM,
           backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
         {
           label: 'Temperatures at 7:00 PM',
           data: temperatures_THCAt7AM,
           backgroundColor: 'rgba(255, 205, 86, 0.2)', // Adjust color as needed
           borderColor: 'rgba(255, 205, 86, 1)', // Adjust color as needed
-          borderWidth: 1,
+          borderWidth: 3,
         },
       ],
     },

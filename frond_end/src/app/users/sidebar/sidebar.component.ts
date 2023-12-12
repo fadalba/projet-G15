@@ -16,7 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin', title: 'Liste Active',  icon:'bi bi-table', class: '' },
     { path: '/pageArchive', title: 'Liste Archive',  icon:'bi bi-table', class: '' },
     { path: '/table', title: 'Historique',  icon:'bi bi-collection', class: '' },
-    { path: '/inscription', title: 'Inscription',  icon:'bi bi-people', class: '' }
+    { path: '/inscription', title: 'Inscription',  icon:'bi bi-people', class: '' },
+    { path: '/diagramme', title: 'Diagrammes',  icon:'bi bi-activity', class: '' }
 ];
 
 export const USERS: RouteInfo[] = [

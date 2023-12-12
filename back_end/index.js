@@ -93,6 +93,7 @@ parser.on('data', function (data) {
     var valeur4 = dataArray[3];
     var valeur5 = dataArray[4];
     var valeur6 = dataArray[5];
+    var valeur7 = dataArray[6];
 //  console.log(data);
     // Affichez les valeurs séparées dans la console à des fins de débogage
     console.log('Valeur 1:', valeur1);
@@ -101,13 +102,15 @@ parser.on('data', function (data) {
     console.log('Valeur 4:', valeur4);
     console.log('valeur5:', valeur5);
     console.log('valeur6:', valeur6);
-    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},{"valeur3":valeur3},{'valeur4':valeur4},{'valeur5':valeur5},{'valeur6':valeur6});
+    console.log('valeur7:', valeur7);
+    io.emit('data',{"valeur2":valeur2},{'valeur1':valeur1},{"valeur3":valeur3},{'valeur4':valeur4},{'valeur5':valeur5},{'valeur6':valeur6},{'valeur7':valeur7});
      io.emit('valeur2',valeur2);
      io.emit('valeur1',valeur1);
      io.emit('valeur3',valeur3);
      io.emit('valeur4',valeur4);
      io.emit('valeur5',valeur5);
      io.emit('valeur6',valeur6);
+     io.emit('valeur7',valeur7);
 
 
    
@@ -131,7 +134,7 @@ var heureEtDate = laDate  + '-' + numMois + '-' +  mois;
       'temperature_THC_C':valeur3, 'temperature_THC_F':valeur4,
     'Photoresistance_XG':valeur5, 'Photoresistance_XD':valeur6}; 
 
-       if ((heur == 15 && min == 42 && sec == 0) 
+       if ((heur == 11 && min == 4 && sec == 0) 
        || (heur == 13 && min == 55 && sec == 0) 
     || (heur == 13 && min == 56 && sec == 0)) { 
          //Connexion a mongodb et insertion Temperature et humidite

@@ -15,7 +15,7 @@
       <div class="card d-flex " style="width: 392px; height: 231px; background-color:#F39C12;">
           
         <div class="card-body mt-3 mr-auto " >
-            <h6 class="text-center" style="color: white;">Thermocouple en temps réel</h6>
+            <h6 class="text-center" style="color: white;">THERMOCOUPLE EN TEMPS RÉEL</h6>
              <div class="d-flex justify-content-around mt-3 mr-auto ">
             <!-- <div  style="font-size: 50px; color: red;" *ngFor="let i of tempHum">{{temperature}}°C </div>
             <div  style="font-size: 50px; color: green; margin-left: 75px;" *ngFor="let i of tempHum">{{humidite}}%</div> -->
@@ -36,14 +36,14 @@
         <div class="card d-flex align-items-center " style="width: 400px; background-color:#b799b9;">
          
           <div class="card-body mt-1 mr-auto gap-3">
-            <h6 class="text-center" style="color: white;">Panneau solaire</h6>
+            <h6 class="text-center" style="color: white;">PANNEAU SOLAIRE</h6>
             <div class="d-flex justify-content-around " >
-              <div style="color: white;">capteur gauche</div>
-              <div style="margin-left: 75px; color: white;">capteur a droite</div> 
+              <div style="color: white;">capteur</div>
+              <div style="margin-left: 75px; color: white;">Position du panneau</div> 
             </div>     
             <div class="d-flex justify-content-around mt-3 mr-auto ">
               <div  style="font-size: 50px; color:darkblue;">{{capteur_gauche}}%</div>
-              <div  style="font-size: 50px; color:darkcyan; margin-left: 75px;"><p>{{capteur_gauche}}%</p></div>
+              <div  style="font-size: 50px; color:darkcyan; margin-left: 75px;" ><p>{{Pos1}}°</p></div>
          </div>      
              <!-- <div class=" d-flex justify-content-center mb-2" *ngIf="img"> 
               <img class="taivent h-50 w-100" src="../../assets/panneau2.png" alt="Card image cap">  
@@ -55,20 +55,16 @@
             </div> -->
             
               <div class=" d-flex justify-content-center" *ngIf="!img">
-                <button type="button" class="btn btn-success" (click)="RotationPlus()">Rotation+</button> 
+                <button type="button" class="btn btn-success" (click)="RotationPlus()"> <span (click)="afficherMessageA()">Rotation</span></button> 
               </div>
-              <div class=" d-flex justify-content-center" *ngIf="img">
-                <button type="button" class="btn btn-danger" (click)="RotationMoin()">Rotation-</button> 
-              </div>
-        
-            
+ 
           </div>
         </div>
       <!--  affichage temperature moyenene -->
         <div class="card d-flex align-items-center" style="width: 392px; height: 231px; background-color: #727d7d;">
           
           <div class="card-body mt-3 mr-auto " >
-              <h6 class="text-center" style="color: white;">Température et Humidité ambiante (DHT11)</h6>
+              <h6 class="text-center" style="color: white;">TEMPÉRATURE ET HUMIDITÉ AMBIANTE (DHT11)</h6>
               
             <div class="d-flex justify-content-around mt-3 mr-auto ">
               <div  style="font-size: 50px; color: red;" >{{temp}}°C</div>

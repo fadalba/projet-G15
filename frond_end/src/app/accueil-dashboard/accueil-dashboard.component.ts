@@ -30,6 +30,7 @@ export class AccueilDashboardComponent implements OnInit {
   fara=273;
   capteur_gauche!:any;
   capteur_droite!:any;
+  position!:any;
   img:boolean =false
   t8:any;t12:any;t19:any;h8:any;h12:any;h19:any;
   historique!: Temphum[];
@@ -40,9 +41,23 @@ export class AccueilDashboardComponent implements OnInit {
   donne19h!: Temphum[];
   donneesEnJSON!: any;
   affiche!:any
+  showMessage!: boolean;
+  Pos1!: number;
 
   constructor(private meteoservice:SocketService, private serServe :UsersService, private socket: Socket){}
 
+//fonction de lecture vocale
+lireMessageVocal(message: string) {
+  const synth = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(message);
+  synth.speak(utterance);
+}
+/* ********************fin Fonction pour lire un message vocal******************** */
+afficherMessageA() {
+this.showMessage = true;
+this.lireMessageVocal("Rotation en cours."); // syntèse vocal
+
+}
   ngOnInit(): void {
 
 
@@ -67,10 +82,26 @@ export class AccueilDashboardComponent implements OnInit {
         this.meteoservice.valeur5().subscribe((data:any)=>{
           this.capteur_gauche = data;
         })
-        this.meteoservice.valeur6().subscribe((daTemphumta:any)=>{
+        this.meteoservice.valeur6().subscribe((data:any)=>{
           this.capteur_droite = data;
         })
-
+        this.meteoservice.valeur7().subscribe((data:any)=>{   
+          this.position = data;
+          console.log(this.position);
+          if ( this.position == 3 ) {
+            this.Pos1 = 0;
+        }
+        else if (this.position == 0) {
+          this.Pos1 = 60;
+      } else if (this.position == -1) {
+            this.Pos1 = 40;
+        }else if (this.position == 1) {
+          this.Pos1 = 90;
+      }else if (this.position == 2) {
+        this.Pos1 = 120;
+    }
+          
+        })
 
 this.date = new Date(); // date
 var jour= this.date.getDate(); //renvoie le chiffre du jour du mois

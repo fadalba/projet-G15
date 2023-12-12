@@ -60,6 +60,9 @@ export class SocketService {
 	  valeur6(){
 		return this.socket.fromEvent('valeur6')
 	  }
+	  valeur7(){
+		return this.socket.fromEvent('valeur7')
+	  }
 	  RotationPlus(){
 		this.socket.emit('RotationPlus' , '1')
 	  }

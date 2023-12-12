@@ -35,7 +35,11 @@
                                                         <i class=" bi-person-plus p-2 fs-4 fw-bolder" ></i>
                                                     </a>
                                                 </li>   
-
+                                                 <li class="nav-item nav-link" *ngIf="roles">
+                                                    <a class="nav-link btn-light border shadow rounded-circle" title="Archives" routerLink="diagramme" data-toggle="tooltip" data-placement="bottom" title="Diagramme">
+                                                        <i class=" bi-person-plus p-2 fs-4 fw-bolder" ></i>
+                                                    </a>
+                                                </li>  
                                             </span>
                                         
                                        
@@ -63,6 +67,7 @@
                             </a>
                             <ul class="dropdown-menu w-25" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" routerLink="profil"><i class=" bi-gear p-2 fs-5 fw-bolder"></i>profile</a></li>
+                                
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
