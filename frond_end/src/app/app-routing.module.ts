@@ -24,7 +24,7 @@ const routes: Routes = [
 {path:"login", component: LoginComponent},
 {path:"sides", component: SidebarComponent},
 {path:"", component: LoginComponent},
-{path:"diagramme", component: DiagrammeComponent},
+{path:"diagramme", component: DiagrammeComponent, canActivate: [AuthGuard]},
 {path:"table", component: TableHistoriqueComponent, canActivate: [AuthGuard]},
 {path:"sides", component: SidebarComponent, canActivate: [AuthGuard]},
 

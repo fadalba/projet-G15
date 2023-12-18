@@ -114,8 +114,7 @@ parser.on('data', function (data) {
 
 
    
-
-     var datHeure = new Date();
+ var datHeure = new Date();
 var min = datHeure.getMinutes();
 var heur = datHeure.getHours(); //heure
 var sec = datHeure.getSeconds(); //secondes
